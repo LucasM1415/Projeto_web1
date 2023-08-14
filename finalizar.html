@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Estilos.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Contato.html">Contato</a></li>
+            <li><a href="Endereço.html">Endereço</a></li>
+        </ul>
+    </nav>
+    <div class="main">
+    <div id="dadosP">
+        <h3>Dados Pessoais</h3>
+    <mark>Nome:</mark> <input type="text">
+    <mark>Endereço:</mark> <input type="text">
+    <mark>CEP:</mark> <input type="text">
+    <mark>Email:</mark> <input type="email">
+</div>
+<div id="dadosC">
+    <h3>Dados para Pagamento</h3>
+<mark>Nome Do Titular:</mark> <input type="text">
+<mark>CPF do Titular:</mark> <input type="text">
+<mark>Nº do Cartao de Credito</mark> <input type="text">
+<mark>CVC:</mark> <input type="email">
+<input class="comprar" type="submit" value="Comprar">
+</div>
+</div>
+<div class="tPedido">
+    <table border="1">
+        <tr>
+            <th>Produtos</th>
+            <th>Valor</th>
+            <th>Frete</th>
+            <th>Total do Pedido</th>
+        </tr>
+        <tr>
+            <td id="line-1"></td>
+            <td id="line-2"></td>
+            <td id="line-3"></td>
+            <td id="line-4"></td>
+        </tr>
+    </table>
+    
+</div>
+<footer class="footer">
+    <p class="text-footer"><br>Endereço: Rua Da praça dos treis Poderes, Agua Preta, Pernambuco, 55550-000</p>
+</footer>
+
+
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const pizzaType = urlParams.get('pizzatype');
+
+    var pizzaP = 14;
+    var pizzaM = 25;
+    var pizzaG = 38;
+    var frete = 5;
+
+    var line1 = document.getElementById('line-1');
+    var line2 = document.getElementById('line-2');
+    var line3 = document.getElementById('line-3');
+    var line4 = document.getElementById('line-4');
+    
+    if (pizzaType === 'pequena') {
+        line1.innerHTML = "Pizza Pequena";
+        line2.innerHTML = "R$" + pizzaP;
+        line3.innerHTML = "R$" + frete;
+        var total = frete + pizzaP;
+        line4.innerHTML = "R$" + total;
+    } else if (pizzaType === 'media') {
+        line1.innerHTML = "Pizza Média";
+        line2.innerHTML = "R$" + pizzaM;
+        line3.innerHTML = "Frete grátis";
+        var total = pizzaM;
+        line4.innerHTML = "R$" + total;
+    } else if (pizzaType === 'grande') {
+        line1.innerHTML = "Pizza Grande";
+        line2.innerHTML = "R$" + pizzaG;
+        line3.innerHTML = "Frete grátis";
+        var total = pizzaG;
+        line4.innerHTML = "R$" + total;
+    }
+
+
+</script>
+</body>
+</html>
